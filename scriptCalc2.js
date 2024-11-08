@@ -8,11 +8,17 @@ function cancella() {
     document.getElementById("schermo").value = "";
 }
 
-
 function risultato() {
     const schermo = document.getElementById("schermo");
-    schermo.value = eval(schermo.value);
+    const espressione = schermo.value;
+
+    // Calcoliamo il risultato dell'espressione usando eval
+    const risultato = eval(espressione);
+    
+    // Assegniamo il risultato all'input (se valido)
+    schermo.value = isNaN(risultato) ? "" : risultato;
 }
+
 
 
 document.addEventListener("keydown", function(event) {
